@@ -1,0 +1,46 @@
+# Purpose: 100 game, two players each chooses number from 1 to 10 and who reaches 100 first is the winner
+# Author: Malak Amr Ahmed
+
+
+# initializing the number of coins each player has
+sum = 0
+# game menu and status
+print("Welcome to 100 game \n"
+      "Now the sum is", sum, "coins\n")
+while True:
+    while True:
+        try:
+            # taking and verifying input from player1
+            player1Input = int(input("Player1: please insert a number from 1 to 10 : "))
+            # restricting input
+            if player1Input in range(1, 11) and player1Input <= 100 - sum:
+                # updating player1 coins status
+                sum += player1Input
+                break
+        except ValueError:
+            pass
+        print("Please insert a valid number from 1 to 10 \n"
+              "If the number is valid, make sure the number is less than or equal to 100 - the sum of coins")
+    # checking if player 1 is winner to announce winner and end the game
+    if sum == 100:
+        print("\nPlayer 1 is winner")
+        break
+    while True:
+        try:
+            # taking and verifying input from player1
+            player2Input = int(input("Player2: please insert a number from 1 to 10 : "))
+            # restricting input
+            if player2Input in range(1, 11) and player2Input <= 100 - sum:
+                # updating player2 coins status
+                sum += player2Input
+                break
+        except ValueError:
+            pass
+        print("Please insert a valid number from 1 to 10 \n"
+              "If the number is valid, make sure the number is less than or equal to 100 - the sum of coins")
+    # checking if player 2 is winner to announce winner and end the game
+    if sum == 100:
+        print("\nPlayer 2 is winner")
+        break
+    # updating game status
+    print("\nNow the sum is", sum, "coins\n")
